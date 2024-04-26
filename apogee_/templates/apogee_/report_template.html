@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relevé des notes</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+            padding: 20px;
+            font-size: medium;
+            font-weight: bold;
+        }
+
+        h1, h2, h3 {
+            color: #007BFF;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            height: 100px; /* Set the maximum height for the logo */
+            margin: auto; /* Center the logo horizontally */
+            display: block; /* Ensure block-level display for proper centering */
+        }
+
+        .mark-sheet {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 9px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .student-details {
+            font-size: 12px;
+            margin-bottom: 9px;
+        }
+
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 9px;
+        }
+
+        .result-table th, .result-table td {
+            border: 2px solid #ddd;
+            padding: 9px;
+            text-align: left;
+        }
+
+        .result-table th {
+            background-color: #f2f2f2;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Logo Container -->
+        <div class="logo-container">
+            <img src="static/logo.png" alt="University Logo" class="logo">
+        </div>
+
+        <h1 class="mt-4 mb-4">Relevé des notes</h1>
+
+        <!-- Mark Sheet Section using Bootstrap Styles -->
+        <div class="mark-sheet">
+            <div class="student-details">
+                <h2>CNE: {{ etudiant}}</h2>
+                <p><strong>Nom:</strong> {{ nom }}</p>
+                <p><strong>Prenom:</strong> {{ prenom }}</p>
+                <p><strong>Email:</strong> {{ email }}</p>
+                <p><strong>Cycle:</strong> {{ cycle }}</p>
+            </div>
+
+            <!-- Results Table -->
+            <table class="result-table">
+                <thead>
+                    <tr>
+                        <th>Matiere</th>
+                        <th>Notes</th>
+                        <!-- Add more columns as needed -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for resultat in resultats %}
+                        <tr>
+                            <td>{{ resultat.matiere.nom }}</td>
+                            <td>{{ resultat.notes }}</td>
+                            <!-- Add more columns as needed -->
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Add other sections of the report as needed -->
+
+    </div>
+
+    <!-- Bootstrap JS (Popper.js and Bootstrap JS) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

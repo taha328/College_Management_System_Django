@@ -1,0 +1,169 @@
+{% load static %}
+
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+    font-family: 'Times New Roman', Times, serif, Helvetica, sans-serif;
+    background-image: url('{% static "apogee_/back.jpeg" %}'); /* Replace 'apogee_/back.peg' with the actual path to your image */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(223, 196, 196);
+    font-size: 20px;
+    
+}
+
+
+  .container {
+    padding: 10px; /* Adjust the padding to control the spacing inside the container */
+    background-color: #47a8e9;
+    max-width: 600px; /* Set the maximum width of the container */
+    margin: 0 auto; /* Center the container horizontally */
+  }
+  input[type=text], input[type=password], textarea {
+    width: 100%;
+    padding: 7px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: orange;
+    outline: none;
+  }
+
+  div {
+    padding: 10px 0;
+  }
+
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+
+  .registerbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  img.logo {
+    width: 600px; /* Set the width to 600px */
+    height: auto;
+    display: block; /* Center the image within the container */
+    margin: 0 auto;
+}
+  .registerbtn:hover {
+    opacity: 1;
+  }
+</style>
+
+  <div class="container">
+    <center>
+      <img src="{% static 'apogee_/logo.png' %}" alt="Logo" class="logo">
+  </center>
+  <hr>
+  
+
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      
+      <div>
+        <label for="{{ form.nom.id_for_label }}">Nom:</label>
+        {{ form.nom }}
+      </div>
+
+      <div>
+        <label for="{{ form.prenom.id_for_label }}">Prenom:</label>
+        {{ form.prenom }}
+      </div>
+
+      <div>
+        <label for="{{ form.cin.id_for_label }}">CIN:</label>
+        {{ form.cin }}
+      </div>
+
+      <div>
+        <label for="{{ form.Cne.id_for_label }}">CNE:</label>
+        {{ form.Cne }}
+      </div>
+
+      <div>
+        <label for="{{ form.sexe.id_for_label }}">Sexe:</label><br>
+        {{ form.sexe }}
+      </div>
+
+      <div>
+        <label for="{{ form.numero_tele.id_for_label }}">Tele:</label>
+        {{ form.numero_tele }}
+      </div>
+
+      <div>
+        <label for="{{ form.ville.id_for_label }}">Ville:</label>
+        {{ form.ville }}
+      </div>
+
+      <div>
+        <label for="{{ form.email.id_for_label }}">Email:</label>
+        {{ form.email }}
+      </div>
+
+      <div>
+        <label for="{{ form.Dernier_diplome_obtenu.id_for_label }}">Dernier diplôme obtenu:</label>
+        {{ form.Dernier_diplome_obtenu }}
+      </div>
+      <div>
+        <label for="{{ form.Dernier_diplome_obtenu.id_for_label }}">Formation souhaitée:</label>
+        {{ form.Formation_souhaitée }}
+      </div>
+      <div>
+        <label for="{{ form.adresse.id_for_label }}">Adresse:</label>
+        <textarea name="adresse" rows="1" cols="30" style="height: 80px;">{{ form.adresse.value }}</textarea>
+      </div>
+      <div>
+        <div>
+          <label for="{{ form.note_s1.id_for_label }}">Note S1:</label>
+          {{ form.note_s1 }}
+      </div>
+      
+      <div>
+          <label for="{{ form.note_s2.id_for_label }}">Note S2:</label>
+          {{ form.note_s2 }}
+      </div>
+      
+      <div>
+          <label for="{{ form.note_s3.id_for_label }}">Note S3:</label>
+          {{ form.note_s3 }}
+      </div>
+      
+      <div>
+          <label for="{{ form.note_s4.id_for_label }}">Note S4:</label>
+          {{ form.note_s4 }}
+      </div>
+      
+      <div>
+          <label for="{{ form.note_s5.id_for_label }}">Note S5:</label>
+          {{ form.note_s5 }}
+      </div>
+      
+      <div>
+          <label for="{{ form.note_s6.id_for_label }}">Note S6:</label>
+          {{ form.note_s6 }}
+      </div>
+        
+        <label for="{{ form.transcript.id_for_label }}">Transcript (PDF only):</label>
+        {{ form.transcript }}
+      </div>
+
+      <!-- Add other fields for notes_s1 to notes_s6 -->
+
+      <button type="submit" class="registerbtn">Submit</button>
+    </form>
+  </div>
+{% endblock %}

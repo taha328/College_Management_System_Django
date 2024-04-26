@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      
+      <link rel="stylesheet" href="{% static 'apogee_/style.css' %}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <style>
+         /* Additional CSS for the small logo */
+         .small-logo {
+            width: 500px; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+         }
+         header {
+            text-align: center;
+            padding: 20px;
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <img src="{% static 'apogee_/logo.png' %}" alt="University Logo" class="logo small-logo">
+      </header>
+      <input type="checkbox" id="active">
+      <label for="active" class="menu-btn"><i class="fas fa-bars"></i></label>
+      <div class="wrapper">
+         <ul>
+            <li><a href="{% url 'resultats' %}" class="btn btn-success btn-option">Resultats</a></li>
+            <li><a href="{% url 'download_convocation' %}" class="btn btn-success btn-option">Stage</a></li>
+            <li><a href="{% url 'generate_student_report' %}" class="btn btn-success btn-option">Relevé de notes</a></li>
+            <li>
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-success btn-option logout-btn">Déconnexion</button>
+                </form>
+                
+                
+            </li>
+            
+         </ul>
+      </div>
+      <div class="content">
+
+            
+         
+         <div class="title">
+            Bienvenue dans votre compte
+         </div>
+         <p>
+            {{user.username}}
+         </p>
+      </div>
+   </body>
+</html>

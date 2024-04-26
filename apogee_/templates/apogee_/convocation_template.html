@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convocation de Stage</title>
+
+    <!-- Add custom styles -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #000000;
+            background-color: #ffffff; /* Light gray background */
+            margin: 0;
+            padding: 0;
+            text-align: center; /* Center the content */
+            font-size: medium;
+            font-weight: bold;
+            
+        }
+    
+        .container {
+            max-width: 800px;
+            margin: 19px auto; /* Center the container */
+            padding: 20px;
+            background-color: #fff; /* White container background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        /* Add a colored box style */
+        .colored-box {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    
+        h1 {
+            color: #007BFF;
+            margin-top: 9px; /* Add space above the heading */
+        }
+    
+        img {
+            display: block;
+            margin: 0 auto; /* Center the logo */
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px; /* Add space below the image */
+        }
+    
+        p {
+            line-height: 1; /* Adjust line height for paragraphs */
+            margin-bottom: 10px; /* Adjust bottom margin for paragraphs */
+        }
+    
+        hr {
+            border-top: 1px solid #ccc;
+            margin: 9px 0;
+        }
+    
+        ul, ol {
+            padding-left: 20px; /* Add some left padding for better indentation */
+        }
+    
+        li {
+            margin-bottom: 5px; /* Adjust bottom margin for list items */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="static/logo.png" alt="University Logo" width="450">
+        <h1>Convocation de Stage</h1>
+        <div class="colored-box">
+            <h2>{{ user.username }}</h2>
+            <p>Nom: {{ nom }}</p>
+            <p>Prenom: {{ prenom }}</p>
+            <p>Email: {{ email }}</p>
+            <p>Cycle: {{ cycle }}</p>
+            <p>Convocation: {{ convocation}}</p>
+        </div>
+        
+        <hr>
+
+        <h3>Details du Stage</h3>
+        <ul>
+            <li><strong>Date du Stage:</strong> {{ periode_de_stage }}</li>
+            <li><strong>Entreprise:</strong> {{ entreprise }}</li>
+            <li><strong>Adresse:</strong> {{ adresse }}</li>
+        </ul>
+
+        <hr>
+
+        <!-- Add more content and styling as needed -->
+    </div>
+
+</body>
+</html>
